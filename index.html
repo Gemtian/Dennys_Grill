@@ -5,259 +5,366 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dennys Grill</title>
   <style>
+    :root {
+      /* ===== CANVAS ===== */
+      --poster-width: min(100vw, 430px);
+      --poster-ratio: 9 / 16;
+
+      /* ===== LINKS ===== */
+      --phone-link: tel:3054317664;
+
+      /* ===== LOGO ===== */
+      --logo-x: 50%;
+      --logo-y: 2.2%;
+      --logo-w: 53%;
+
+      /* ===== SOCIAL COVERS ===== */
+      --fb-cover-x: 8.5%;
+      --fb-cover-y: 34.4%;
+      --fb-cover-w: 39%;
+
+      --ig-cover-x: 52.8%;
+      --ig-cover-y: 34.4%;
+      --ig-cover-w: 39%;
+
+      --tt-cover-x: 8.5%;
+      --tt-cover-y: 43.8%;
+      --tt-cover-w: 39%;
+
+      --gg-cover-x: 52.8%;
+      --gg-cover-y: 43.8%;
+      --gg-cover-w: 39%;
+
+      /* ===== SOCIAL ICONS ===== */
+      --fb-icon-x: 9.2%;
+      --fb-icon-y: 35.3%;
+      --fb-icon-w: 8.8%;
+
+      --ig-icon-x: 81.2%;
+      --ig-icon-y: 35.3%;
+      --ig-icon-w: 8.8%;
+
+      --tt-icon-x: 9.2%;
+      --tt-icon-y: 44.7%;
+      --tt-icon-w: 8.8%;
+
+      --gg-icon-x: 81.2%;
+      --gg-icon-y: 44.7%;
+      --gg-icon-w: 8.8%;
+
+      /* ===== TEXTS ===== */
+      --click-x: 50%;
+      --click-y: 40.1%;
+      --click-w: 15%;
+
+      --call-x: 11%;
+      --call-y: 74.3%;
+      --call-w: 34%;
+
+      --phone-x: 50%;
+      --phone-y: 79.2%;
+      --phone-w: 82%;
+
+      /* ===== FIRE / SMOKE / FOOD ===== */
+      --smoke-rear-x: 50%;
+      --smoke-rear-y: 36.5%;
+      --smoke-rear-w: 100%;
+
+      --smoke-mid1-x: 50%;
+      --smoke-mid1-y: 42.2%;
+      --smoke-mid1-w: 100%;
+
+      --smoke-mid2-x: 50%;
+      --smoke-mid2-y: 45.8%;
+      --smoke-mid2-w: 100%;
+
+      --smoke-front-x: 50%;
+      --smoke-front-y: 49.4%;
+      --smoke-front-w: 100%;
+
+      --flame-back-x: 50%;
+      --flame-back-y: 57.4%;
+      --flame-back-w: 100%;
+
+      --flame-center-x: 50%;
+      --flame-center-y: 60.3%;
+      --flame-center-w: 100%;
+
+      --flame-front-x: 50%;
+      --flame-front-y: 80.6%;
+      --flame-front-w: 100%;
+
+      --meat-x: 50%;
+      --meat-y: 56.8%;
+      --meat-w: 100%;
+
+      --carbon-x: 50%;
+      --carbon-y: 81.2%;
+      --carbon-w: 100%;
+
+      /* ===== HOTSPOTS ===== */
+      --fb-hit-x: 8.5%;
+      --fb-hit-y: 34.4%;
+      --fb-hit-w: 39%;
+      --fb-hit-h: 7.1%;
+
+      --ig-hit-x: 52.8%;
+      --ig-hit-y: 34.4%;
+      --ig-hit-w: 39%;
+      --ig-hit-h: 7.1%;
+
+      --tt-hit-x: 8.5%;
+      --tt-hit-y: 43.8%;
+      --tt-hit-w: 39%;
+      --tt-hit-h: 7.1%;
+
+      --gg-hit-x: 52.8%;
+      --gg-hit-y: 43.8%;
+      --gg-hit-w: 39%;
+      --gg-hit-h: 7.1%;
+
+      --phone-hit-x: 9.2%;
+      --phone-hit-y: 77.2%;
+      --phone-hit-w: 81.5%;
+      --phone-hit-h: 9.6%;
+    }
+
     * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; background: #0d0d0d; }
-    body { display: grid; place-items: center; padding: 10px; font-family: Arial, Helvetica, sans-serif; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      display: grid;
+      place-items: center;
+      padding: 10px;
+    }
 
     .poster {
       position: relative;
-      width: min(100vw, 430px);
-      aspect-ratio: 9 / 16;
+      width: var(--poster-width);
+      aspect-ratio: var(--poster-ratio);
       overflow: hidden;
-      background: #111;
-      box-shadow: 0 20px 56px rgba(0,0,0,.48);
+      background: #171717;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
       isolation: isolate;
     }
 
-    .bg {
+    .layer {
       position: absolute;
+      display: block;
+      max-width: none;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      transform-origin: center center;
+    }
+
+    .center-x { transform: translateX(-50%); }
+    .center-both { transform: translate(-50%, -50%); }
+
+    .bg {
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       z-index: 1;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
     }
 
-    .fx {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: auto;
-      display: block;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
+    /* ===== LAYERS ===== */
+    .smoke-rear  { left: var(--smoke-rear-x); top: var(--smoke-rear-y); width: var(--smoke-rear-w); z-index: 2; mix-blend-mode: screen; opacity: .62; animation: smokeRear 13s ease-in-out infinite alternate; }
+    .flame-back  { left: var(--flame-back-x); top: var(--flame-back-y); width: var(--flame-back-w); z-index: 3; mix-blend-mode: screen; opacity: .82; animation: flameBack 2.2s ease-in-out infinite alternate; }
+    .flame-center{ left: var(--flame-center-x); top: var(--flame-center-y); width: var(--flame-center-w); z-index: 4; mix-blend-mode: screen; opacity: .86; animation: flameCenter 1.8s ease-in-out infinite alternate; }
+    .flame-front { left: var(--flame-front-x); top: var(--flame-front-y); width: var(--flame-front-w); z-index: 5; mix-blend-mode: screen; opacity: .98; animation: flameFront 1.25s ease-in-out infinite alternate; }
+    .meat        { left: var(--meat-x); top: var(--meat-y); width: var(--meat-w); z-index: 6; }
+    .smoke-mid1  { left: var(--smoke-mid1-x); top: var(--smoke-mid1-y); width: var(--smoke-mid1-w); z-index: 7; mix-blend-mode: screen; opacity: .38; animation: smokeMid1 11s ease-in-out infinite alternate; }
+    .smoke-mid2  { left: var(--smoke-mid2-x); top: var(--smoke-mid2-y); width: var(--smoke-mid2-w); z-index: 8; mix-blend-mode: screen; opacity: .34; animation: smokeMid2 9s ease-in-out infinite alternate; }
+    .carbon      { left: var(--carbon-x); top: var(--carbon-y); width: var(--carbon-w); z-index: 9; mix-blend-mode: screen; }
+    .smoke-front { left: var(--smoke-front-x); top: var(--smoke-front-y); width: var(--smoke-front-w); z-index: 10; mix-blend-mode: screen; opacity: .28; animation: smokeFront 8s ease-in-out infinite alternate; }
 
-    /* Capas colocadas abajo para evitar el gris/blank arriba */
-    .smoke-back {
-      z-index: 2;
-      top: 31%;
-      opacity: .58;
-      mix-blend-mode: multiply;
-      animation: smokeA 11s ease-in-out infinite alternate;
-    }
+    .logo        { left: var(--logo-x); top: var(--logo-y); width: var(--logo-w); z-index: 20; }
 
-    .embers {
-      z-index: 3;
-      top: 79%;
-      opacity: .98;
-      mix-blend-mode: screen;
-      animation: emberGlow 3s ease-in-out infinite;
-    }
+    .cover-fb    { left: var(--fb-cover-x); top: var(--fb-cover-y); width: var(--fb-cover-w); z-index: 21; }
+    .cover-ig    { left: var(--ig-cover-x); top: var(--ig-cover-y); width: var(--ig-cover-w); z-index: 21; }
+    .cover-tt    { left: var(--tt-cover-x); top: var(--tt-cover-y); width: var(--tt-cover-w); z-index: 21; }
+    .cover-gg    { left: var(--gg-cover-x); top: var(--gg-cover-y); width: var(--gg-cover-w); z-index: 21; }
 
-    .fire-mid {
-      z-index: 4;
-      top: 60%;
-      opacity: .9;
-      mix-blend-mode: multiply;
-      animation: fireA 1.9s ease-in-out infinite alternate;
-    }
+    .icon-fb     { left: var(--fb-icon-x); top: var(--fb-icon-y); width: var(--fb-icon-w); z-index: 22; }
+    .icon-ig     { left: var(--ig-icon-x); top: var(--ig-icon-y); width: var(--ig-icon-w); z-index: 22; }
+    .icon-tt     { left: var(--tt-icon-x); top: var(--tt-icon-y); width: var(--tt-icon-w); z-index: 22; }
+    .icon-gg     { left: var(--gg-icon-x); top: var(--gg-icon-y); width: var(--gg-icon-w); z-index: 22; }
 
-    .fire-front {
-      z-index: 5;
-      top: 78%;
-      opacity: .98;
-      mix-blend-mode: screen;
-      animation: fireB 1.2s ease-in-out infinite alternate;
-    }
+    .click-word  { left: var(--click-x); top: var(--click-y); width: var(--click-w); z-index: 23; }
+    .call-word   { left: var(--call-x); top: var(--call-y); width: var(--call-w); z-index: 23; }
+    .phone-art   { left: var(--phone-x); top: var(--phone-y); width: var(--phone-w); z-index: 24; }
 
-    .smoke-front {
-      z-index: 6;
-      top: 56%;
-      opacity: .64;
-      mix-blend-mode: screen;
-      animation: smokeB 8.5s ease-in-out infinite alternate;
-    }
-
-    .steak {
-      z-index: 7;
-      top: 53%;
-    }
-
-    /* overlays recortados por bbox */
-    .logo {
-      position: absolute;
-      left: 16.1%;
-      top: 1.4%;
-      width: 67.5%;
-      z-index: 20;
-      display: block;
-      mix-blend-mode: screen;
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
-      pointer-events: none;
-    }
-
-    .cover, .icon, .click-word, .call-word, .phone-art {
-      position: absolute;
-      display: block;
-      z-index: 21;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    .cover-inst { left: 52.9%; top: 36.1%; width: 38.5%; }
-    .cover-tiktok { left: 8.4%; top: 46.4%; width: 38.5%; }
-    .cover-google { left: 52.9%; top: 46.4%; width: 38.5%; }
-
-    /* Facebook faltaba en tus archivos: lo genero por CSS para que aparezca completo */
-    .cover-facebook {
-      position: absolute;
-      left: 8.4%;
-      top: 36.1%;
-      width: 38.5%;
-      height: 6.8%;
-      border: 3px solid rgba(255,255,255,.92);
-      border-radius: 999px;
-      z-index: 21;
-      pointer-events: none;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
-    }
-
-    .icon-inst { left: 80.6%; top: 37.0%; width: 9.0%; z-index: 24; }
-    .icon-tiktok { left: 9.9%; top: 47.2%; width: 9.0%; z-index: 24; }
-    .icon-google { left: 80.6%; top: 47.2%; width: 9.0%; z-index: 24; }
-
-    .icon-facebook {
-      position: absolute;
-      left: 9.9%;
-      top: 37.0%;
-      width: 9.0%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: rgba(255,255,255,.95);
-      color: #6b412f;
-      z-index: 24;
-      display: grid;
-      place-items: center;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 900;
-      font-size: clamp(28px, 3.9vw, 40px);
-      line-height: 1;
-      pointer-events: none;
-      text-transform: lowercase;
-    }
-
-    .click-word { left: 42.8%; top: 43.5%; width: 14.3%; z-index: 22; }
-    .call-word { left: 10.6%; top: 75.8%; width: 36%; z-index: 22; }
-    .phone-art { left: 7.0%; top: 79.0%; width: 83%; z-index: 23; }
-
-    .hit {
+    /* ===== HOTSPOTS ===== */
+    .hotspot {
       position: absolute;
       z-index: 50;
       display: block;
-      background: transparent;
       border-radius: 999px;
-      -webkit-tap-highlight-color: transparent;
+      background: transparent;
       outline: none;
+      -webkit-tap-highlight-color: transparent;
     }
+    .hotspot-fb    { left: var(--fb-hit-x); top: var(--fb-hit-y); width: var(--fb-hit-w); height: var(--fb-hit-h); }
+    .hotspot-ig    { left: var(--ig-hit-x); top: var(--ig-hit-y); width: var(--ig-hit-w); height: var(--ig-hit-h); }
+    .hotspot-tt    { left: var(--tt-hit-x); top: var(--tt-hit-y); width: var(--tt-hit-w); height: var(--tt-hit-h); }
+    .hotspot-gg    { left: var(--gg-hit-x); top: var(--gg-hit-y); width: var(--gg-hit-w); height: var(--gg-hit-h); }
+    .hotspot-phone { left: var(--phone-hit-x); top: var(--phone-hit-y); width: var(--phone-hit-w); height: var(--phone-hit-h); border-radius: 24px; }
 
-    .hit-facebook  { left: 8.4%;  top: 36.1%; width: 38.5%; height: 6.8%; }
-    .hit-instagram { left: 52.9%; top: 36.1%; width: 38.5%; height: 6.8%; }
-    .hit-tiktok    { left: 8.4%;  top: 46.4%; width: 38.5%; height: 6.8%; }
-    .hit-google    { left: 52.9%; top: 46.4%; width: 38.5%; height: 6.8%; }
-    .hit-phone     { left: 7.0%;  top: 79.0%; width: 83%; height: 8.7%; border-radius: 20px; }
+    .pop { animation: pop .34s ease; }
 
-    .pop { animation: pop .28s ease; }
+    .note {
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      z-index: 100;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.75);
+      color: #fff;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      white-space: nowrap;
+    }
+    .note.show { opacity: 1; }
 
-    @keyframes smokeA {
-      0% { transform: translate3d(-1.2%, .8%, 0) scale(1.01); }
-      50% { transform: translate3d(1.2%, -.8%, 0) scale(1.025); }
-      100% { transform: translate3d(-.4%, -1.2%, 0) scale(1.015); }
+    /* ===== ANIMATIONS ===== */
+    @keyframes smokeRear {
+      0%   { transform: translateX(-50%) translateY(0) scale(1); }
+      50%  { transform: translateX(-50%) translateY(-1.2%) scale(1.02); }
+      100% { transform: translateX(-50%) translateY(-2.1%) scale(1.03); }
     }
-    @keyframes smokeB {
-      0% { transform: translate3d(.8%, .6%, 0) scale(1.01); }
-      50% { transform: translate3d(-1.1%, -.8%, 0) scale(1.02); }
-      100% { transform: translate3d(.4%, -1.1%, 0) scale(1.014); }
+    @keyframes smokeMid1 {
+      0%   { transform: translateX(-50%) translateY(0) translateX(-.3%) scale(1); }
+      50%  { transform: translateX(-50%) translateY(-1.6%) translateX(.4%) scale(1.02); }
+      100% { transform: translateX(-50%) translateY(-2.8%) translateX(-.2%) scale(1.03); }
     }
-    @keyframes emberGlow {
-      0%,100% { transform: scale(1); filter: brightness(1) saturate(1); }
-      50% { transform: scale(1.01); filter: brightness(1.12) saturate(1.08); }
+    @keyframes smokeMid2 {
+      0%   { transform: translateX(-50%) translateY(0) translateX(.25%) scale(1); }
+      50%  { transform: translateX(-50%) translateY(-1.3%) translateX(-.45%) scale(1.018); }
+      100% { transform: translateX(-50%) translateY(-2.4%) translateX(.15%) scale(1.028); }
     }
-    @keyframes fireA {
-      0% { transform: translateY(.6%) scale(1); filter: brightness(.98) saturate(1); }
-      50% { transform: translateY(-.5%) scale(1.016); filter: brightness(1.12) saturate(1.08); }
-      100% { transform: translateY(.35%) scale(1.004); filter: brightness(1.03) saturate(1.03); }
+    @keyframes smokeFront {
+      0%   { transform: translateX(-50%) translateY(0) scale(1); }
+      50%  { transform: translateX(-50%) translateY(-1.1%) scale(1.015); }
+      100% { transform: translateX(-50%) translateY(-2%) scale(1.022); }
     }
-    @keyframes fireB {
-      0% { transform: translateY(.7%) scale(1); filter: brightness(1) saturate(1.04); }
-      50% { transform: translateY(-1%) scale(1.03); filter: brightness(1.2) saturate(1.14); }
-      100% { transform: translateY(.45%) scale(1.006); filter: brightness(1.04) saturate(1.04); }
+    @keyframes flameBack {
+      0%   { transform: translateX(-50%) translateY(0) scale(1); filter: brightness(.95) saturate(1); }
+      50%  { transform: translateX(-50%) translateY(-.45%) scale(1.02); filter: brightness(1.08) saturate(1.08); }
+      100% { transform: translateX(-50%) translateY(.25%) scale(1.01); filter: brightness(1.02) saturate(1.04); }
+    }
+    @keyframes flameCenter {
+      0%   { transform: translateX(-50%) translateY(0) scale(1); filter: brightness(.98) saturate(1.02); }
+      50%  { transform: translateX(-50%) translateY(-.7%) scale(1.025); filter: brightness(1.12) saturate(1.12); }
+      100% { transform: translateX(-50%) translateY(.3%) scale(1.012); filter: brightness(1.03) saturate(1.06); }
+    }
+    @keyframes flameFront {
+      0%   { transform: translateX(-50%) translateY(0) scale(1); filter: brightness(1) saturate(1.04); }
+      50%  { transform: translateX(-50%) translateY(-.9%) scale(1.03); filter: brightness(1.2) saturate(1.16); }
+      100% { transform: translateX(-50%) translateY(.3%) scale(1.012); filter: brightness(1.05) saturate(1.08); }
     }
     @keyframes pop {
-      0% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-7px) scale(1.08); }
+      0%   { transform: translateY(0) scale(1); }
+      50%  { transform: translateY(-7px) scale(1.08); }
       100% { transform: translateY(0) scale(1); }
     }
   </style>
 </head>
 <body>
   <main class="poster">
-    <img class="bg" src="deys fondo copy.png" alt="Fondo ladrillo" />
+    <img class="layer bg" src="background-bricks.png" alt="Background bricks" />
 
-    <img class="fx smoke-back" src="deys fondo copy2.png" alt="Humo" />
-    <img class="fx embers" src="deys fondo copy3.png" alt="Carbón" />
-    <img class="fx fire-mid" src="deys fondo copy4.png" alt="Llama" />
-    <img class="fx fire-front" src="deys fondo copy5.png" alt="Fuego frontal" />
-    <img class="fx smoke-front" src="deys fondo copy6.png" alt="Humo frontal" />
-    <img class="fx steak" src="deys fondo copy7.png" alt="Steak" />
+    <img class="layer smoke-rear center-x" src="smoke_rear.png" alt="Smoke rear" />
+    <img class="layer flame-back center-x" src="flame_back.png" alt="Flame back" />
+    <img class="layer flame-center center-x" src="flame_center.png" alt="Flame center" />
+    <img class="layer flame-front center-x" src="flame_front.png" alt="Flame front" />
+    <img class="layer meat center-x" src="meat.png" alt="Meat" />
+    <img class="layer smoke-mid1 center-x" src="smoke_mid1.png" alt="Smoke mid 1" />
+    <img class="layer smoke-mid2 center-x" src="smoke_mid2.png" alt="Smoke mid 2" />
+    <img class="layer carbon center-x" src="carbon.png" alt="Carbon" />
+    <img class="layer smoke-front center-x" src="smoke_front.png" alt="Smoke front" />
 
-    <img class="logo" src="logo.png" alt="Dennys Grill" />
+    <img class="layer logo center-x" src="logo.png" alt="Logo" />
 
-    <div class="cover-facebook"></div>
-    <img class="cover cover-inst" src="cover_inst.png" alt="Instagram cover" />
-    <img class="cover cover-tiktok" src="cover_tiktok.png" alt="TikTok cover" />
-    <img class="cover cover-google" src="cover_google.png" alt="Google cover" />
+    <img class="layer cover-fb" src="cover_face.png" alt="Facebook cover" />
+    <img class="layer cover-ig" src="cover_inst.png" alt="Instagram cover" />
+    <img class="layer cover-tt" src="cover_tiktok.png" alt="TikTok cover" />
+    <img class="layer cover-gg" src="cover_google.png" alt="Google cover" />
 
-    <div class="icon-facebook" id="fbicon">f</div>
-    <img class="icon icon-inst" id="igicon" src="inst.png" alt="Instagram" />
-    <img class="icon icon-tiktok" id="tkicon" src="tiktok.png" alt="TikTok" />
-    <img class="icon icon-google" id="ggicon" src="google.png" alt="Google" />
+    <img class="layer icon-fb" src="face.png" alt="Facebook" />
+    <img class="layer icon-ig" src="inst.png" alt="Instagram" />
+    <img class="layer icon-tt" src="tiktok.png" alt="TikTok" />
+    <img class="layer icon-gg" src="google.png" alt="Google" />
 
-    <img class="click-word" src="click.png" alt="Click" />
-    <img class="call-word" src="clicktocall.png" alt="Click to call us" />
-    <img class="phone-art" id="phoneart" src="305.png" alt="305-431-7664" />
+    <img class="layer click-word center-x" src="click.png" alt="Click" />
+    <img class="layer call-word" src="clicktocall.png" alt="Click to call us" />
+    <img class="layer phone-art center-x" src="305.png" alt="305-431-7664" />
 
-    <a class="hit hit-facebook" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"></a>
-    <a class="hit hit-instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
-    <a class="hit hit-tiktok" href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok"></a>
-    <a class="hit hit-google" href="https://g.page" target="_blank" rel="noopener noreferrer" aria-label="Google"></a>
-    <a class="hit hit-phone" href="tel:3054317664" aria-label="Llamar a Dennys Grill"></a>
+    <a class="hotspot hotspot-fb" data-type="facebook" data-link="" aria-label="Facebook"></a>
+    <a class="hotspot hotspot-ig" data-type="instagram" data-link="" aria-label="Instagram"></a>
+    <a class="hotspot hotspot-tt" data-type="tiktok" data-link="" aria-label="TikTok"></a>
+    <a class="hotspot hotspot-gg" data-type="google" data-link="" aria-label="Google"></a>
+    <a class="hotspot hotspot-phone" href="tel:3054317664" data-type="phone" aria-label="Phone"></a>
   </main>
 
+  <div class="note" id="note">Añade el link después.</div>
+
   <script>
-    const map = {
-      '.hit-facebook': '#fbicon',
-      '.hit-instagram': '#igicon',
-      '.hit-tiktok': '#tkicon',
-      '.hit-google': '#ggicon',
-      '.hit-phone': '#phoneart'
+    const note = document.getElementById('note');
+    let timer;
+
+    function showNote(text) {
+      note.textContent = text;
+      note.classList.add('show');
+      clearTimeout(timer);
+      timer = setTimeout(() => note.classList.remove('show'), 1500);
+    }
+
+    function pop(selector) {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      el.classList.remove('pop');
+      void el.offsetWidth;
+      el.classList.add('pop');
+    }
+
+    const iconMap = {
+      facebook: '.icon-fb',
+      instagram: '.icon-ig',
+      tiktok: '.icon-tt',
+      google: '.icon-gg',
+      phone: '.phone-art'
     };
 
-    Object.entries(map).forEach(([hitSel, targetSel]) => {
-      const hit = document.querySelector(hitSel);
-      const target = document.querySelector(targetSel);
-      if (!hit || !target) return;
-      hit.addEventListener('click', () => {
-        target.classList.remove('pop');
-        void target.offsetWidth;
-        target.classList.add('pop');
+    document.querySelectorAll('.hotspot').forEach(h => {
+      h.addEventListener('click', (e) => {
+        const type = h.dataset.type;
+        pop(iconMap[type]);
+
+        if (type === 'phone') return;
+
+        const link = h.dataset.link.trim();
+        if (!link) {
+          e.preventDefault();
+          showNote('Aquí añades el link de ' + type + '.');
+          return;
+        }
+
+        h.href = link;
+        h.target = '_blank';
+        h.rel = 'noopener noreferrer';
       });
     });
   </script>
 </body>
 </html>
+
