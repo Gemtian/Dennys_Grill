@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -6,127 +6,108 @@
   <title>Dennys Grill</title>
   <style>
     :root {
-      /* ===== CANVAS ===== */
       --poster-width: min(100vw, 430px);
       --poster-ratio: 9 / 16;
-
-      /* ===== LINKS ===== */
       --phone-link: tel:3054317664;
 
       /* ===== LOGO ===== */
       --logo-x: 50%;
-      --logo-y: 2.2%;
-      --logo-w: 53%;
+      --logo-y: 1.6%;
+      --logo-w: 60%;
 
       /* ===== SOCIAL COVERS ===== */
-      --fb-cover-x: 8.5%;
-      --fb-cover-y: 34.4%;
-      --fb-cover-w: 39%;
+      --fb-cover-x: 8.3%;
+      --fb-cover-y: 34.6%;
+      --fb-cover-w: 39.2%;
 
-      --ig-cover-x: 52.8%;
-      --ig-cover-y: 34.4%;
-      --ig-cover-w: 39%;
+      --ig-cover-x: 52.5%;
+      --ig-cover-y: 34.6%;
+      --ig-cover-w: 39.2%;
 
-      --tt-cover-x: 8.5%;
-      --tt-cover-y: 43.8%;
-      --tt-cover-w: 39%;
+      --tt-cover-x: 8.3%;
+      --tt-cover-y: 43.9%;
+      --tt-cover-w: 39.2%;
 
-      --gg-cover-x: 52.8%;
-      --gg-cover-y: 43.8%;
-      --gg-cover-w: 39%;
+      --gg-cover-x: 52.5%;
+      --gg-cover-y: 43.9%;
+      --gg-cover-w: 39.2%;
 
-      /* ===== SOCIAL ICONS ===== */
-      --fb-icon-x: 9.2%;
-      --fb-icon-y: 35.3%;
-      --fb-icon-w: 8.8%;
-
-      --ig-icon-x: 81.2%;
-      --ig-icon-y: 35.3%;
-      --ig-icon-w: 8.8%;
-
-      --tt-icon-x: 9.2%;
-      --tt-icon-y: 44.7%;
-      --tt-icon-w: 8.8%;
-
-      --gg-icon-x: 81.2%;
-      --gg-icon-y: 44.7%;
-      --gg-icon-w: 8.8%;
+      /* ===== SOCIAL ICONS: misma separación dentro del cover ===== */
+      --icon-inset: 1.55%;
+      --icon-size: 8.7%;
+      --fb-icon-x: 9.85%;
+      --fb-icon-y: 35.55%;
+      --ig-icon-x: 81.25%;
+      --ig-icon-y: 35.55%;
+      --tt-icon-x: 9.85%;
+      --tt-icon-y: 44.85%;
+      --gg-icon-x: 81.25%;
+      --gg-icon-y: 44.85%;
 
       /* ===== TEXTS ===== */
       --click-x: 50%;
-      --click-y: 40.1%;
-      --click-w: 15%;
-
-      --call-x: 11%;
-      --call-y: 74.3%;
-      --call-w: 34%;
-
+      --click-y: 40.2%;
+      --click-w: 15.5%;
+      --call-x: 10.7%;
+      --call-y: 74.0%;
+      --call-w: 35.5%;
       --phone-x: 50%;
-      --phone-y: 79.2%;
-      --phone-w: 82%;
+      --phone-y: 79.1%;
+      --phone-w: 81.5%;
 
       /* ===== FIRE / SMOKE / FOOD ===== */
       --smoke-rear-x: 50%;
-      --smoke-rear-y: 36.5%;
+      --smoke-rear-y: 37.2%;
       --smoke-rear-w: 100%;
-
       --smoke-mid1-x: 50%;
-      --smoke-mid1-y: 42.2%;
+      --smoke-mid1-y: 43.2%;
       --smoke-mid1-w: 100%;
-
       --smoke-mid2-x: 50%;
-      --smoke-mid2-y: 45.8%;
+      --smoke-mid2-y: 47.2%;
       --smoke-mid2-w: 100%;
-
       --smoke-front-x: 50%;
-      --smoke-front-y: 49.4%;
+      --smoke-front-y: 60.5%;
       --smoke-front-w: 100%;
 
       --flame-back-x: 50%;
-      --flame-back-y: 57.4%;
+      --flame-back-y: 58.4%;
       --flame-back-w: 100%;
-
       --flame-center-x: 50%;
-      --flame-center-y: 60.3%;
+      --flame-center-y: 62.5%;
       --flame-center-w: 100%;
-
       --flame-front-x: 50%;
-      --flame-front-y: 80.6%;
+      --flame-front-y: 82.3%;
       --flame-front-w: 100%;
 
       --meat-x: 50%;
-      --meat-y: 56.8%;
-      --meat-w: 100%;
+      --meat-y: 61.8%;
+      --meat-w: 102%;
 
       --carbon-x: 50%;
-      --carbon-y: 81.2%;
-      --carbon-w: 100%;
+      --carbon-y: 84.8%;
+      --carbon-w: 102%;
 
       /* ===== HOTSPOTS ===== */
-      --fb-hit-x: 8.5%;
-      --fb-hit-y: 34.4%;
-      --fb-hit-w: 39%;
-      --fb-hit-h: 7.1%;
-
-      --ig-hit-x: 52.8%;
-      --ig-hit-y: 34.4%;
-      --ig-hit-w: 39%;
-      --ig-hit-h: 7.1%;
-
-      --tt-hit-x: 8.5%;
-      --tt-hit-y: 43.8%;
-      --tt-hit-w: 39%;
-      --tt-hit-h: 7.1%;
-
-      --gg-hit-x: 52.8%;
-      --gg-hit-y: 43.8%;
-      --gg-hit-w: 39%;
-      --gg-hit-h: 7.1%;
-
-      --phone-hit-x: 9.2%;
-      --phone-hit-y: 77.2%;
-      --phone-hit-w: 81.5%;
-      --phone-hit-h: 9.6%;
+      --fb-hit-x: 8.3%;
+      --fb-hit-y: 34.6%;
+      --fb-hit-w: 39.2%;
+      --fb-hit-h: 7.2%;
+      --ig-hit-x: 52.5%;
+      --ig-hit-y: 34.6%;
+      --ig-hit-w: 39.2%;
+      --ig-hit-h: 7.2%;
+      --tt-hit-x: 8.3%;
+      --tt-hit-y: 43.9%;
+      --tt-hit-w: 39.2%;
+      --tt-hit-h: 7.2%;
+      --gg-hit-x: 52.5%;
+      --gg-hit-y: 43.9%;
+      --gg-hit-w: 39.2%;
+      --gg-hit-h: 7.2%;
+      --phone-hit-x: 9.3%;
+      --phone-hit-y: 77.1%;
+      --phone-hit-w: 81.3%;
+      --phone-hit-h: 9.7%;
     }
 
     * { box-sizing: border-box; }
@@ -163,7 +144,6 @@
     }
 
     .center-x { transform: translateX(-50%); }
-    .center-both { transform: translate(-50%, -50%); }
 
     .bg {
       inset: 0;
@@ -173,16 +153,15 @@
       z-index: 1;
     }
 
-    /* ===== LAYERS ===== */
-    .smoke-rear  { left: var(--smoke-rear-x); top: var(--smoke-rear-y); width: var(--smoke-rear-w); z-index: 2; mix-blend-mode: screen; opacity: .62; animation: smokeRear 13s ease-in-out infinite alternate; }
-    .flame-back  { left: var(--flame-back-x); top: var(--flame-back-y); width: var(--flame-back-w); z-index: 3; mix-blend-mode: screen; opacity: .82; animation: flameBack 2.2s ease-in-out infinite alternate; }
-    .flame-center{ left: var(--flame-center-x); top: var(--flame-center-y); width: var(--flame-center-w); z-index: 4; mix-blend-mode: screen; opacity: .86; animation: flameCenter 1.8s ease-in-out infinite alternate; }
-    .flame-front { left: var(--flame-front-x); top: var(--flame-front-y); width: var(--flame-front-w); z-index: 5; mix-blend-mode: screen; opacity: .98; animation: flameFront 1.25s ease-in-out infinite alternate; }
+    .smoke-rear  { left: var(--smoke-rear-x); top: var(--smoke-rear-y); width: var(--smoke-rear-w); z-index: 2; mix-blend-mode: screen; opacity: .28; animation: smokeRear 13s ease-in-out infinite alternate; }
+    .flame-back  { left: var(--flame-back-x); top: var(--flame-back-y); width: var(--flame-back-w); z-index: 3; mix-blend-mode: screen; opacity: .72; animation: flameBack 2.2s ease-in-out infinite alternate; }
+    .flame-center{ left: var(--flame-center-x); top: var(--flame-center-y); width: var(--flame-center-w); z-index: 4; mix-blend-mode: screen; opacity: .78; animation: flameCenter 1.8s ease-in-out infinite alternate; }
     .meat        { left: var(--meat-x); top: var(--meat-y); width: var(--meat-w); z-index: 6; }
-    .smoke-mid1  { left: var(--smoke-mid1-x); top: var(--smoke-mid1-y); width: var(--smoke-mid1-w); z-index: 7; mix-blend-mode: screen; opacity: .38; animation: smokeMid1 11s ease-in-out infinite alternate; }
-    .smoke-mid2  { left: var(--smoke-mid2-x); top: var(--smoke-mid2-y); width: var(--smoke-mid2-w); z-index: 8; mix-blend-mode: screen; opacity: .34; animation: smokeMid2 9s ease-in-out infinite alternate; }
-    .carbon      { left: var(--carbon-x); top: var(--carbon-y); width: var(--carbon-w); z-index: 9; mix-blend-mode: screen; }
-    .smoke-front { left: var(--smoke-front-x); top: var(--smoke-front-y); width: var(--smoke-front-w); z-index: 10; mix-blend-mode: screen; opacity: .28; animation: smokeFront 8s ease-in-out infinite alternate; }
+    .smoke-mid1  { left: var(--smoke-mid1-x); top: var(--smoke-mid1-y); width: var(--smoke-mid1-w); z-index: 7; mix-blend-mode: screen; opacity: .16; animation: smokeMid1 11s ease-in-out infinite alternate; }
+    .smoke-mid2  { left: var(--smoke-mid2-x); top: var(--smoke-mid2-y); width: var(--smoke-mid2-w); z-index: 8; mix-blend-mode: screen; opacity: .14; animation: smokeMid2 9s ease-in-out infinite alternate; }
+    .carbon      { left: var(--carbon-x); top: var(--carbon-y); width: var(--carbon-w); z-index: 9; mix-blend-mode: screen; opacity: .98; }
+    .flame-front { left: var(--flame-front-x); top: var(--flame-front-y); width: var(--flame-front-w); z-index: 10; mix-blend-mode: screen; opacity: .96; animation: flameFront 1.25s ease-in-out infinite alternate; }
+    .smoke-front { left: var(--smoke-front-x); top: var(--smoke-front-y); width: var(--smoke-front-w); z-index: 11; mix-blend-mode: screen; opacity: .18; animation: smokeFront 8s ease-in-out infinite alternate; }
 
     .logo        { left: var(--logo-x); top: var(--logo-y); width: var(--logo-w); z-index: 20; }
 
@@ -191,16 +170,15 @@
     .cover-tt    { left: var(--tt-cover-x); top: var(--tt-cover-y); width: var(--tt-cover-w); z-index: 21; }
     .cover-gg    { left: var(--gg-cover-x); top: var(--gg-cover-y); width: var(--gg-cover-w); z-index: 21; }
 
-    .icon-fb     { left: var(--fb-icon-x); top: var(--fb-icon-y); width: var(--fb-icon-w); z-index: 22; }
-    .icon-ig     { left: var(--ig-icon-x); top: var(--ig-icon-y); width: var(--ig-icon-w); z-index: 22; }
-    .icon-tt     { left: var(--tt-icon-x); top: var(--tt-icon-y); width: var(--tt-icon-w); z-index: 22; }
-    .icon-gg     { left: var(--gg-icon-x); top: var(--gg-icon-y); width: var(--gg-icon-w); z-index: 22; }
+    .icon-fb     { left: var(--fb-icon-x); top: var(--fb-icon-y); width: var(--icon-size); z-index: 22; }
+    .icon-ig     { left: var(--ig-icon-x); top: var(--ig-icon-y); width: var(--icon-size); z-index: 22; }
+    .icon-tt     { left: var(--tt-icon-x); top: var(--tt-icon-y); width: var(--icon-size); z-index: 22; }
+    .icon-gg     { left: var(--gg-icon-x); top: var(--gg-icon-y); width: var(--icon-size); z-index: 22; }
 
     .click-word  { left: var(--click-x); top: var(--click-y); width: var(--click-w); z-index: 23; }
     .call-word   { left: var(--call-x); top: var(--call-y); width: var(--call-w); z-index: 23; }
     .phone-art   { left: var(--phone-x); top: var(--phone-y); width: var(--phone-w); z-index: 24; }
 
-    /* ===== HOTSPOTS ===== */
     .hotspot {
       position: absolute;
       z-index: 50;
@@ -236,7 +214,6 @@
     }
     .note.show { opacity: 1; }
 
-    /* ===== ANIMATIONS ===== */
     @keyframes smokeRear {
       0%   { transform: translateX(-50%) translateY(0) scale(1); }
       50%  { transform: translateX(-50%) translateY(-1.2%) scale(1.02); }
@@ -367,4 +344,3 @@
   </script>
 </body>
 </html>
-
