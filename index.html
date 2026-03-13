@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -12,45 +12,46 @@
 
       /* ===== LOGO ===== */
       --logo-x: 50%;
-      --logo-y: 2%;
-      --logo-w: 70%;
+      --logo-y: 1.2%;
+      --logo-w: 63%;
 
       /* ===== SOCIAL COVERS ===== */
       --fb-cover-x: 8.3%;
       --fb-cover-y: 34.6%;
-      --fb-cover-w: 36%;
+      --fb-cover-w: 39.2%;
 
       --ig-cover-x: 52.5%;
       --ig-cover-y: 34.6%;
-      --ig-cover-w: 36%;
+      --ig-cover-w: 39.2%;
 
       --tt-cover-x: 8.3%;
       --tt-cover-y: 43.9%;
-      --tt-cover-w: 36%;
+      --tt-cover-w: 39.2%;
 
       --gg-cover-x: 52.5%;
       --gg-cover-y: 43.9%;
-      --gg-cover-w: 36%;
+      --gg-cover-w: 39.2%;
 
-      /* ===== SOCIAL ICONS: misma separación dentro del cover ===== */
-      --icon-inset: 1.55%;
+      /* ===== SOCIAL ICONS ===== */
       --icon-size: 8.7%;
       --fb-icon-x: 9.85%;
-      --fb-icon-y: 35.55%;
-      --ig-icon-x: 78%;
-      --ig-icon-y: 35.55%;
+      --fb-icon-y: 34.9%;
+      --ig-icon-x: 81.25%;
+      --ig-icon-y: 34.9%;
       --tt-icon-x: 9.85%;
-      --tt-icon-y: 44.85%;
-      --gg-icon-x: 78%;
-      --gg-icon-y: 44.85%;
+      --tt-icon-y: 44.15%;
+      --gg-icon-x: 81.25%;
+      --gg-icon-y: 44.15%;
 
       /* ===== TEXTS ===== */
       --click-x: 50%;
-      --click-y: 40.2%;
+      --click-y: 39.6%;
       --click-w: 15.5%;
+
       --call-x: 10.7%;
       --call-y: 75%;
       --call-w: 35.5%;
+
       --phone-x: 50%;
       --phone-y: 79.1%;
       --phone-w: 81.5%;
@@ -59,51 +60,60 @@
       --smoke-rear-x: 50%;
       --smoke-rear-y: 37.2%;
       --smoke-rear-w: 100%;
+
       --smoke-mid1-x: 50%;
       --smoke-mid1-y: 43.2%;
       --smoke-mid1-w: 100%;
+
       --smoke-mid2-x: 50%;
       --smoke-mid2-y: 47.2%;
       --smoke-mid2-w: 100%;
+
       --smoke-front-x: 50%;
       --smoke-front-y: 60.5%;
       --smoke-front-w: 100%;
 
       --flame-back-x: 50%;
-      --flame-back-y: 58.4%;
+      --flame-back-y: 56.8%;
       --flame-back-w: 100%;
+
       --flame-center-x: 50%;
-      --flame-center-y: 62.5%;
+      --flame-center-y: 58.9%;
       --flame-center-w: 100%;
+
       --flame-front-x: 50%;
-      --flame-front-y: 82.3%;
+      --flame-front-y: 80.9%;
       --flame-front-w: 100%;
 
       --meat-x: 50%;
-      --meat-y: 39%;
-      --meat-w: 95%;
+      --meat-y: 59.8%;
+      --meat-w: 102%;
 
-      --carbon-x: 45%;
-      --carbon-y: 70%;
-      --carbon-w: 100%;
+      --carbon-x: 50%;
+      --carbon-y: 84.8%;
+      --carbon-w: 102%;
 
       /* ===== HOTSPOTS ===== */
       --fb-hit-x: 8.3%;
       --fb-hit-y: 34.6%;
       --fb-hit-w: 39.2%;
       --fb-hit-h: 7.2%;
+
       --ig-hit-x: 52.5%;
       --ig-hit-y: 34.6%;
       --ig-hit-w: 39.2%;
       --ig-hit-h: 7.2%;
+
       --tt-hit-x: 8.3%;
       --tt-hit-y: 43.9%;
       --tt-hit-w: 39.2%;
       --tt-hit-h: 7.2%;
+
       --gg-hit-x: 52.5%;
       --gg-hit-y: 43.9%;
       --gg-hit-w: 39.2%;
       --gg-hit-h: 7.2%;
+
       --phone-hit-x: 9.3%;
       --phone-hit-y: 77.1%;
       --phone-hit-w: 81.3%;
@@ -111,12 +121,14 @@
     }
 
     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       min-height: 100%;
       background: #111;
       font-family: Arial, Helvetica, sans-serif;
     }
+
     body {
       display: grid;
       place-items: center;
@@ -143,7 +155,9 @@
       transform-origin: center center;
     }
 
-    .center-x { transform: translateX(-50%); }
+    .center-x {
+      transform: translateX(-50%);
+    }
 
     .bg {
       inset: 0;
@@ -153,31 +167,175 @@
       z-index: 1;
     }
 
-    .smoke-rear  { left: var(--smoke-rear-x); top: var(--smoke-rear-y); width: var(--smoke-rear-w); z-index: 2; mix-blend-mode: screen; opacity: .28; animation: smokeRear 13s ease-in-out infinite alternate; }
-    .flame-back  { left: var(--flame-back-x); top: var(--flame-back-y); width: var(--flame-back-w); z-index: 3; mix-blend-mode: screen; opacity: .72; animation: flameBack 2.2s ease-in-out infinite alternate; }
-    .flame-center{ left: var(--flame-center-x); top: var(--flame-center-y); width: var(--flame-center-w); z-index: 4; mix-blend-mode: screen; opacity: .78; animation: flameCenter 1.8s ease-in-out infinite alternate; }
-    .meat        { left: var(--meat-x); top: var(--meat-y); width: var(--meat-w); z-index: 6; }
-    .smoke-mid1  { left: var(--smoke-mid1-x); top: var(--smoke-mid1-y); width: var(--smoke-mid1-w); z-index: 7; mix-blend-mode: screen; opacity: .16; animation: smokeMid1 11s ease-in-out infinite alternate; }
-    .smoke-mid2  { left: var(--smoke-mid2-x); top: var(--smoke-mid2-y); width: var(--smoke-mid2-w); z-index: 8; mix-blend-mode: screen; opacity: .14; animation: smokeMid2 9s ease-in-out infinite alternate; }
-    .carbon      { left: var(--carbon-x); top: var(--carbon-y); width: var(--carbon-w); z-index: 9; mix-blend-mode: screen; opacity: .98; }
-    .flame-front { left: var(--flame-front-x); top: var(--flame-front-y); width: var(--flame-front-w); z-index: 10; mix-blend-mode: screen; opacity: .96; animation: flameFront 1.25s ease-in-out infinite alternate; }
-    .smoke-front { left: var(--smoke-front-x); top: var(--smoke-front-y); width: var(--smoke-front-w); z-index: 11; mix-blend-mode: screen; opacity: .18; animation: smokeFront 8s ease-in-out infinite alternate; }
+    .smoke-rear {
+      left: var(--smoke-rear-x);
+      top: var(--smoke-rear-y);
+      width: var(--smoke-rear-w);
+      z-index: 2;
+      mix-blend-mode: screen;
+      opacity: .28;
+      animation: smokeRear 13s ease-in-out infinite alternate;
+    }
 
-    .logo        { left: var(--logo-x); top: var(--logo-y); width: var(--logo-w); z-index: 20; }
+    .flame-back {
+      left: var(--flame-back-x);
+      top: var(--flame-back-y);
+      width: var(--flame-back-w);
+      z-index: 3;
+      mix-blend-mode: screen;
+      opacity: .72;
+      animation: flameBack 2.2s ease-in-out infinite alternate;
+    }
 
-    .cover-fb    { left: var(--fb-cover-x); top: var(--fb-cover-y); width: var(--fb-cover-w); z-index: 21; }
-    .cover-ig    { left: var(--ig-cover-x); top: var(--ig-cover-y); width: var(--ig-cover-w); z-index: 21; }
-    .cover-tt    { left: var(--tt-cover-x); top: var(--tt-cover-y); width: var(--tt-cover-w); z-index: 21; }
-    .cover-gg    { left: var(--gg-cover-x); top: var(--gg-cover-y); width: var(--gg-cover-w); z-index: 21; }
+    .flame-center {
+      left: var(--flame-center-x);
+      top: var(--flame-center-y);
+      width: var(--flame-center-w);
+      z-index: 4;
+      mix-blend-mode: screen;
+      opacity: .78;
+      animation: flameCenter 1.8s ease-in-out infinite alternate;
+    }
 
-    .icon-fb     { left: var(--fb-icon-x); top: var(--fb-icon-y); width: var(--icon-size); z-index: 22; }
-    .icon-ig     { left: var(--ig-icon-x); top: var(--ig-icon-y); width: var(--icon-size); z-index: 22; }
-    .icon-tt     { left: var(--tt-icon-x); top: var(--tt-icon-y); width: var(--icon-size); z-index: 22; }
-    .icon-gg     { left: var(--gg-icon-x); top: var(--gg-icon-y); width: var(--icon-size); z-index: 22; }
+    .smoke-mid1 {
+      left: var(--smoke-mid1-x);
+      top: var(--smoke-mid1-y);
+      width: var(--smoke-mid1-w);
+      z-index: 5;
+      mix-blend-mode: screen;
+      opacity: .16;
+      animation: smokeMid1 11s ease-in-out infinite alternate;
+    }
 
-    .click-word  { left: var(--click-x); top: var(--click-y); width: var(--click-w); z-index: 23; }
-    .call-word   { left: var(--call-x); top: var(--call-y); width: var(--call-w); z-index: 23; }
-    .phone-art   { left: var(--phone-x); top: var(--phone-y); width: var(--phone-w); z-index: 24; }
+    .smoke-mid2 {
+      left: var(--smoke-mid2-x);
+      top: var(--smoke-mid2-y);
+      width: var(--smoke-mid2-w);
+      z-index: 6;
+      mix-blend-mode: screen;
+      opacity: .14;
+      animation: smokeMid2 9s ease-in-out infinite alternate;
+    }
+
+    .flame-front {
+      left: var(--flame-front-x);
+      top: var(--flame-front-y);
+      width: var(--flame-front-w);
+      z-index: 7;
+      mix-blend-mode: screen;
+      opacity: .96;
+      animation: flameFront 1.25s ease-in-out infinite alternate;
+    }
+
+    .smoke-front {
+      left: var(--smoke-front-x);
+      top: var(--smoke-front-y);
+      width: var(--smoke-front-w);
+      z-index: 8;
+      mix-blend-mode: screen;
+      opacity: .18;
+      animation: smokeFront 8s ease-in-out infinite alternate;
+    }
+
+    .carbon {
+      left: var(--carbon-x);
+      top: var(--carbon-y);
+      width: var(--carbon-w);
+      z-index: 9;
+      mix-blend-mode: screen;
+      opacity: .98;
+    }
+
+    .meat {
+      left: var(--meat-x);
+      top: var(--meat-y);
+      width: var(--meat-w);
+      z-index: 10;
+    }
+
+    .logo {
+      left: var(--logo-x);
+      top: var(--logo-y);
+      width: var(--logo-w);
+      z-index: 20;
+    }
+
+    .cover-fb {
+      left: var(--fb-cover-x);
+      top: var(--fb-cover-y);
+      width: var(--fb-cover-w);
+      z-index: 21;
+    }
+
+    .cover-ig {
+      left: var(--ig-cover-x);
+      top: var(--ig-cover-y);
+      width: var(--ig-cover-w);
+      z-index: 21;
+    }
+
+    .cover-tt {
+      left: var(--tt-cover-x);
+      top: var(--tt-cover-y);
+      width: var(--tt-cover-w);
+      z-index: 21;
+    }
+
+    .cover-gg {
+      left: var(--gg-cover-x);
+      top: var(--gg-cover-y);
+      width: var(--gg-cover-w);
+      z-index: 21;
+    }
+
+    .icon-fb {
+      left: var(--fb-icon-x);
+      top: var(--fb-icon-y);
+      width: var(--icon-size);
+      z-index: 22;
+    }
+
+    .icon-ig {
+      left: var(--ig-icon-x);
+      top: var(--ig-icon-y);
+      width: var(--icon-size);
+      z-index: 22;
+    }
+
+    .icon-tt {
+      left: var(--tt-icon-x);
+      top: var(--tt-icon-y);
+      width: var(--icon-size);
+      z-index: 22;
+    }
+
+    .icon-gg {
+      left: var(--gg-icon-x);
+      top: var(--gg-icon-y);
+      width: var(--icon-size);
+      z-index: 22;
+    }
+
+    .click-word {
+      left: var(--click-x);
+      top: var(--click-y);
+      width: var(--click-w);
+      z-index: 23;
+    }
+
+    .call-word {
+      left: var(--call-x);
+      top: var(--call-y);
+      width: var(--call-w);
+      z-index: 23;
+    }
+
+    .phone-art {
+      left: var(--phone-x);
+      top: var(--phone-y);
+      width: var(--phone-w);
+      z-index: 24;
+    }
 
     .hotspot {
       position: absolute;
@@ -188,13 +346,46 @@
       outline: none;
       -webkit-tap-highlight-color: transparent;
     }
-    .hotspot-fb    { left: var(--fb-hit-x); top: var(--fb-hit-y); width: var(--fb-hit-w); height: var(--fb-hit-h); }
-    .hotspot-ig    { left: var(--ig-hit-x); top: var(--ig-hit-y); width: var(--ig-hit-w); height: var(--ig-hit-h); }
-    .hotspot-tt    { left: var(--tt-hit-x); top: var(--tt-hit-y); width: var(--tt-hit-w); height: var(--tt-hit-h); }
-    .hotspot-gg    { left: var(--gg-hit-x); top: var(--gg-hit-y); width: var(--gg-hit-w); height: var(--gg-hit-h); }
-    .hotspot-phone { left: var(--phone-hit-x); top: var(--phone-hit-y); width: var(--phone-hit-w); height: var(--phone-hit-h); border-radius: 24px; }
 
-    .pop { animation: pop .34s ease; }
+    .hotspot-fb {
+      left: var(--fb-hit-x);
+      top: var(--fb-hit-y);
+      width: var(--fb-hit-w);
+      height: var(--fb-hit-h);
+    }
+
+    .hotspot-ig {
+      left: var(--ig-hit-x);
+      top: var(--ig-hit-y);
+      width: var(--ig-hit-w);
+      height: var(--ig-hit-h);
+    }
+
+    .hotspot-tt {
+      left: var(--tt-hit-x);
+      top: var(--tt-hit-y);
+      width: var(--tt-hit-w);
+      height: var(--tt-hit-h);
+    }
+
+    .hotspot-gg {
+      left: var(--gg-hit-x);
+      top: var(--gg-hit-y);
+      width: var(--gg-hit-w);
+      height: var(--gg-hit-h);
+    }
+
+    .hotspot-phone {
+      left: var(--phone-hit-x);
+      top: var(--phone-hit-y);
+      width: var(--phone-hit-w);
+      height: var(--phone-hit-h);
+      border-radius: 24px;
+    }
+
+    .pop {
+      animation: pop .34s ease;
+    }
 
     .note {
       position: fixed;
@@ -212,43 +403,53 @@
       transition: opacity .2s ease;
       white-space: nowrap;
     }
-    .note.show { opacity: 1; }
+
+    .note.show {
+      opacity: 1;
+    }
 
     @keyframes smokeRear {
       0%   { transform: translateX(-50%) translateY(0) scale(1); }
       50%  { transform: translateX(-50%) translateY(-1.2%) scale(1.02); }
       100% { transform: translateX(-50%) translateY(-2.1%) scale(1.03); }
     }
+
     @keyframes smokeMid1 {
       0%   { transform: translateX(-50%) translateY(0) translateX(-.3%) scale(1); }
       50%  { transform: translateX(-50%) translateY(-1.6%) translateX(.4%) scale(1.02); }
       100% { transform: translateX(-50%) translateY(-2.8%) translateX(-.2%) scale(1.03); }
     }
+
     @keyframes smokeMid2 {
       0%   { transform: translateX(-50%) translateY(0) translateX(.25%) scale(1); }
       50%  { transform: translateX(-50%) translateY(-1.3%) translateX(-.45%) scale(1.018); }
       100% { transform: translateX(-50%) translateY(-2.4%) translateX(.15%) scale(1.028); }
     }
+
     @keyframes smokeFront {
       0%   { transform: translateX(-50%) translateY(0) scale(1); }
       50%  { transform: translateX(-50%) translateY(-1.1%) scale(1.015); }
       100% { transform: translateX(-50%) translateY(-2%) scale(1.022); }
     }
+
     @keyframes flameBack {
       0%   { transform: translateX(-50%) translateY(0) scale(1); filter: brightness(.95) saturate(1); }
       50%  { transform: translateX(-50%) translateY(-.45%) scale(1.02); filter: brightness(1.08) saturate(1.08); }
       100% { transform: translateX(-50%) translateY(.25%) scale(1.01); filter: brightness(1.02) saturate(1.04); }
     }
+
     @keyframes flameCenter {
       0%   { transform: translateX(-50%) translateY(0) scale(1); filter: brightness(.98) saturate(1.02); }
       50%  { transform: translateX(-50%) translateY(-.7%) scale(1.025); filter: brightness(1.12) saturate(1.12); }
       100% { transform: translateX(-50%) translateY(.3%) scale(1.012); filter: brightness(1.03) saturate(1.06); }
     }
+
     @keyframes flameFront {
       0%   { transform: translateX(-50%) translateY(0) scale(1); filter: brightness(1) saturate(1.04); }
       50%  { transform: translateX(-50%) translateY(-.9%) scale(1.03); filter: brightness(1.2) saturate(1.16); }
       100% { transform: translateX(-50%) translateY(.3%) scale(1.012); filter: brightness(1.05) saturate(1.08); }
     }
+
     @keyframes pop {
       0%   { transform: translateY(0) scale(1); }
       50%  { transform: translateY(-7px) scale(1.08); }
@@ -263,12 +464,12 @@
     <img class="layer smoke-rear center-x" src="smoke_rear.png" alt="Smoke rear" />
     <img class="layer flame-back center-x" src="flame_back.png" alt="Flame back" />
     <img class="layer flame-center center-x" src="flame_center.png" alt="Flame center" />
-    <img class="layer flame-front center-x" src="flame_front.png" alt="Flame front" />
-    <img class="layer meat center-x" src="meat.png" alt="Meat" />
     <img class="layer smoke-mid1 center-x" src="smoke_mid1.png" alt="Smoke mid 1" />
     <img class="layer smoke-mid2 center-x" src="smoke_mid2.png" alt="Smoke mid 2" />
-    <img class="layer carbon center-x" src="carbon.png" alt="Carbon" />
+    <img class="layer flame-front center-x" src="flame_front.png" alt="Flame front" />
     <img class="layer smoke-front center-x" src="smoke_front.png" alt="Smoke front" />
+    <img class="layer carbon center-x" src="carbon.png" alt="Carbon" />
+    <img class="layer meat center-x" src="meat.png" alt="Meat" />
 
     <img class="layer logo center-x" src="logo.png" alt="Logo" />
 
