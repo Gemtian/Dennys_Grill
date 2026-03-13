@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dennys Grill</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #0f0f0f;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+
+    .poster {
+      position: relative;
+      width: min(100vw, 430px);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 20px 54px rgba(0,0,0,.42);
+      isolation: isolate;
+    }
+
+    .layer,
+    .asset {
+      position: absolute;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .layer {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .bg { z-index: 1; }
+    .smoke-back {
+      z-index: 2;
+      mix-blend-mode: screen;
+      opacity: .84;
+      animation: smokeDriftA 11s ease-in-out infinite alternate;
+      transform-origin: center bottom;
+    }
+    .embers { z-index: 3; animation: emberGlow 3.2s ease-in-out infinite; }
+    .fire-mid {
+      z-index: 4;
+      mix-blend-mode: screen;
+      animation: fireFlickerA 1.8s ease-in-out infinite alternate;
+      transform-origin: center bottom;
+    }
+    .fire-front {
+      z-index: 5;
+      mix-blend-mode: screen;
+      animation: fireFlickerB 1.25s ease-in-out infinite alternate;
+      transform-origin: center bottom;
+    }
+    .smoke-front {
+      z-index: 6;
+      mix-blend-mode: screen;
+      opacity: .92;
+      animation: smokeDriftB 8.8s ease-in-out infinite alternate;
+      transform-origin: center bottom;
+    }
+    .steak { z-index: 7; }
+
+    .ui { position: absolute; inset: 0; z-index: 20; }
+
+    .logo {
+      top: 2.3%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 67.5%;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+      pointer-events: none;
+    }
+
+    .social-link {
+      position: absolute;
+      display: block;
+      border-radius: 999px;
+      overflow: visible;
+      text-decoration: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .social-link .cover {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.18));
+      transition: transform .18s ease;
+    }
+
+    .social-link .icon {
+      position: absolute;
+      width: 18.5%;
+      height: auto;
+      transition: transform .2s ease, filter .2s ease;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,.18));
+    }
+
+    .social-link:hover .cover { transform: translateY(-1px); }
+    .social-link:hover .icon { transform: translateY(-2px) scale(1.04); }
+    .social-link:active .icon { transform: translateY(-5px) scale(1.08); }
+
+    .facebook { top: 34.2%; left: 5.5%; width: 42.2%; }
+    .facebook .icon { left: 4.7%; top: 10.5%; }
+
+    .instagram { top: 34.2%; right: 5.3%; width: 42.2%; }
+    .instagram .icon { right: 4.8%; top: 10.3%; }
+
+    .tiktok { top: 43.05%; left: 5.7%; width: 42.0%; }
+    .tiktok .icon { left: 4.8%; top: 10.4%; }
+
+    .google { top: 43.05%; right: 5.3%; width: 42.2%; }
+    .google .icon { right: 4.7%; top: 10.1%; }
+
+    .click-word {
+      top: 39.45%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 17%;
+      pointer-events: none;
+    }
+
+    .call-label {
+      left: 6.9%;
+      bottom: 15.4%;
+      width: 39%;
+      pointer-events: none;
+    }
+
+    .phone-link {
+      position: absolute;
+      left: 7%;
+      bottom: 5.5%;
+      width: 86%;
+      display: block;
+      text-decoration: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .phone-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,.42));
+      transition: transform .18s ease;
+    }
+
+    .phone-link:hover .phone-img { transform: scale(1.015); }
+    .phone-link:active .phone-img { transform: scale(1.03); }
+
+    .float-pop { animation: floatPop .28s ease; }
+
+    @keyframes smokeDriftA {
+      0% { transform: translate3d(-1.2%, 1.1%, 0) scale(1.01); }
+      50% { transform: translate3d(1.4%, -.8%, 0) scale(1.03); }
+      100% { transform: translate3d(-.6%, -1.35%, 0) scale(1.02); }
+    }
+    @keyframes smokeDriftB {
+      0% { transform: translate3d(1%, .9%, 0) scale(1.01); }
+      50% { transform: translate3d(-1.3%, -1%, 0) scale(1.025); }
+      100% { transform: translate3d(.5%, -1.4%, 0) scale(1.018); }
+    }
+    @keyframes emberGlow {
+      0%,100% { filter: brightness(1) saturate(1); transform: scale(1); }
+      50% { filter: brightness(1.1) saturate(1.04); transform: scale(1.01); }
+    }
+    @keyframes fireFlickerA {
+      0% { transform: translateY(.55%) scale(1); filter: brightness(.98) saturate(1); }
+      25% { transform: translateY(-.4%) scale(1.012); filter: brightness(1.08) saturate(1.05); }
+      50% { transform: translateY(.2%) scale(.997); filter: brightness(1.01) saturate(1.02); }
+      75% { transform: translateY(-.65%) scale(1.018); filter: brightness(1.14) saturate(1.08); }
+      100% { transform: translateY(.35%) scale(1.005); filter: brightness(1.03) saturate(1.03); }
+    }
+    @keyframes fireFlickerB {
+      0% { transform: translateY(.7%) scale(1); filter: brightness(.99) saturate(1.05); }
+      20% { transform: translateY(-.85%) scale(1.028); filter: brightness(1.18) saturate(1.12); }
+      45% { transform: translateY(.35%) scale(.992); filter: brightness(1.02) saturate(1.02); }
+      70% { transform: translateY(-1.1%) scale(1.035); filter: brightness(1.22) saturate(1.16); }
+      100% { transform: translateY(.5%) scale(1.006); filter: brightness(1.04) saturate(1.04); }
+    }
+    @keyframes floatPop {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-7px) scale(1.09); }
+      100% { transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster">
+    <img class="layer bg" src="deys fondo copy.png" alt="Fondo" />
+    <img class="layer smoke-back" src="deys fondo copy2.png" alt="Humo" />
+    <img class="layer embers" src="deys fondo copy3.png" alt="Brasas" />
+    <img class="layer fire-mid" src="deys fondo copy4.png" alt="Fuego" />
+    <img class="layer fire-front" src="deys fondo copy5.png" alt="Llamas" />
+    <img class="layer smoke-front" src="deys fondo copy6.png" alt="Humo frontal" />
+    <img class="layer steak" src="deys fondo copy7.png" alt="Steak" />
+
+    <section class="ui">
+      <img class="asset logo" src="logo.png" alt="Dennys Grill" />
+
+      <a class="social-link facebook" href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img class="cover" src="cover_face.png" alt="Facebook cover" />
+        <img class="icon" src="face.png" alt="Facebook" />
+      </a>
+
+      <a class="social-link instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img class="cover" src="cover_inst.png" alt="Instagram cover" />
+        <img class="icon" src="inst.png" alt="Instagram" />
+      </a>
+
+      <a class="social-link tiktok" href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <img class="cover" src="cover_tiktok.png" alt="TikTok cover" />
+        <img class="icon" src="tiktok.png" alt="TikTok" />
+      </a>
+
+      <a class="social-link google" href="https://g.page" target="_blank" rel="noopener noreferrer" aria-label="Google">
+        <img class="cover" src="cover_google.png" alt="Google cover" />
+        <img class="icon" src="google.png" alt="Google" />
+      </a>
+
+      <img class="asset click-word" src="click.png" alt="Click" />
+      <img class="asset call-label" src="clicktocall.png" alt="Click to call us" />
+
+      <a class="phone-link" href="tel:3054317664" aria-label="Llamar a Dennys Grill">
+        <img class="phone-img" src="305.png" alt="305-431-7664" />
+      </a>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('.social-link .icon, .phone-img').forEach(el => {
+      const trigger = el.closest('.social-link') || el.closest('.phone-link');
+      trigger?.addEventListener('click', () => {
+        el.classList.remove('float-pop');
+        void el.offsetWidth;
+        el.classList.add('float-pop');
+      });
+    });
+  </script>
+</body>
+</html>
