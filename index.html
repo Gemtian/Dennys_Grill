@@ -169,7 +169,6 @@
       z-index: 1;
     }
 
-    /* ===== PSD ORDER EXACTO ===== */
     .humo {
       left: var(--humo-x);
       top: var(--humo-y);
@@ -410,6 +409,73 @@
       opacity: 1;
     }
 
+    .contact-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(6px);
+    }
+
+    .contact-menu.show {
+      display: flex;
+    }
+
+    .contact-card {
+      width: min(100%, 360px);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(32,32,32,.96), rgba(14,14,14,.96));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 24px 70px rgba(0,0,0,.45);
+      padding: 18px;
+      color: #fff;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .contact-card p {
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.45;
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.06);
+    }
+
+    .contact-btn.primary {
+      background: linear-gradient(90deg, #ff7a00, #ff4d00);
+      color: #150d06;
+    }
+
+    .contact-btn.close-btn {
+      background: transparent;
+      color: rgba(255,255,255,.82);
+    }
+
     @keyframes fuego1 {
       0%   { transform: translateX(-50%) scale(1); }
       100% { transform: translateX(-50%) scale(1.06); }
@@ -449,7 +515,6 @@
 </head>
 <body>
   <main class="poster">
-    <!-- PSD order exacto -->
     <img class="layer bg" src="background-bricks.png" alt="Background bricks" />
 
     <img class="layer humo center-x" src="humo.png" alt="Humo" />
@@ -483,35 +548,56 @@
     <img class="layer phone-art center-x" src="305.png" alt="305-431-7664" />
 
     <a class="hotspot hotspot-fb"
-   href="https://www.facebook.com/profile.php?id=61580162693148"
-   data-type="facebook"
-   data-link="https://www.facebook.com/profile.php?id=61580162693148"
-   aria-label="Facebook"
-   target="_blank"
-   rel="noopener noreferrer"></a>
+      href="https://www.facebook.com/profile.php?id=61580162693148"
+      data-type="facebook"
+      data-link="https://www.facebook.com/profile.php?id=61580162693148"
+      aria-label="Facebook"
+      target="_blank"
+      rel="noopener noreferrer"></a>
+
     <a class="hotspot hotspot-ig"
-   href="https://www.instagram.com/dennysgrill00/"
-   data-type="instagram"
-   data-link="https://www.instagram.com/dennysgrill00/"
-   aria-label="Instagram"
-   target="_blank"
-   rel="noopener noreferrer"></a>
+      href="https://www.instagram.com/dennysgrill00/"
+      data-type="instagram"
+      data-link="https://www.instagram.com/dennysgrill00/"
+      aria-label="Instagram"
+      target="_blank"
+      rel="noopener noreferrer"></a>
+
     <a class="hotspot hotspot-tt"
-   href="https://www.tiktok.com/@dennysgrill?is_from_webapp=1&sender_device=pc"
-   data-type="tiktok"
-   data-link="https://www.tiktok.com/@dennysgrill?is_from_webapp=1&sender_device=pc"
-   aria-label="TikTok"
-   target="_blank"
-   rel="noopener noreferrer"></a>
+      href="https://www.tiktok.com/@dennysgrill?is_from_webapp=1&sender_device=pc"
+      data-type="tiktok"
+      data-link="https://www.tiktok.com/@dennysgrill?is_from_webapp=1&sender_device=pc"
+      aria-label="TikTok"
+      target="_blank"
+      rel="noopener noreferrer"></a>
+
     <a class="hotspot hotspot-gg" data-type="google" data-link="" aria-label="Google"></a>
     <a class="hotspot hotspot-phone" href="tel:3054317664" data-type="phone" aria-label="Phone"></a>
   </main>
 
   <div class="note" id="note">Añade el link después.</div>
 
+  <div class="contact-menu" id="contactMenu" aria-hidden="true">
+    <div class="contact-card">
+      <h3>Denny's Grill</h3>
+      <p>Ahora el número puede seguir llamando, pero además añadí la opción para guardar el contacto como vCard.</p>
+      <div class="contact-actions">
+        <a class="contact-btn primary" href="tel:3054317664">📞 Call Now</a>
+        <a class="contact-btn" id="saveContactBtn" href="#" download="Dennys-Grill.vcf">💾 Save Contact</a>
+        <button class="contact-btn close-btn" id="closeContactBtn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const note = document.getElementById('note');
+    const contactMenu = document.getElementById('contactMenu');
+    const closeContactBtn = document.getElementById('closeContactBtn');
+    const saveContactBtn = document.getElementById('saveContactBtn');
     let timer;
+
+    const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:Grill;Dennys;;;\nFN:Denny's Grill\nORG:Denny's Grill\nTEL;TYPE=CELL:3054317664\nURL:https://www.instagram.com/dennysgrill00/\nURL:https://www.facebook.com/profile.php?id=61580162693148\nURL:https://www.tiktok.com/@dennysgrill?is_from_webapp=1&sender_device=pc\nEND:VCARD`;
+    saveContactBtn.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
 
     function showNote(text) {
       note.textContent = text;
@@ -528,6 +614,16 @@
       el.classList.add('pop');
     }
 
+    function openContactMenu() {
+      contactMenu.classList.add('show');
+      contactMenu.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeContactMenu() {
+      contactMenu.classList.remove('show');
+      contactMenu.setAttribute('aria-hidden', 'true');
+    }
+
     const iconMap = {
       facebook: '.icon-fb',
       instagram: '.icon-ig',
@@ -541,7 +637,11 @@
         const type = h.dataset.type;
         pop(iconMap[type]);
 
-        if (type === 'phone') return;
+        if (type === 'phone') {
+          e.preventDefault();
+          openContactMenu();
+          return;
+        }
 
         const link = (h.dataset.link || '').trim();
         if (!link) {
@@ -554,6 +654,12 @@
         h.target = '_blank';
         h.rel = 'noopener noreferrer';
       });
+    });
+
+    closeContactBtn.addEventListener('click', closeContactMenu);
+
+    contactMenu.addEventListener('click', (e) => {
+      if (e.target === contactMenu) closeContactMenu();
     });
   </script>
 </body>
